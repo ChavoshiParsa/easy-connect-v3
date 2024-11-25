@@ -1,6 +1,8 @@
-import { io } from 'socket.io-client';
+import { io, Socket } from 'socket.io-client';
 
-const URL = 'https://easy-connect-server.liara.run/';
-// const URL = 'http://localhost:3001';
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-export const socket = io(URL);
+export const socket: Socket = io(backendUrl, {
+  withCredentials: true,
+  transports: ['websocket', 'polling'],
+});

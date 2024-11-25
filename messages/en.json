@@ -1,0 +1,13 @@
+{
+  "Metadata": {
+    "title": "Easy Connect",
+    "description": "Connect to your friends with Easy Connect"
+  },
+  "LandingPage": {
+    "easy_connect": "Easy Connect",
+    "welcome": "Welcome to Easy Connect!",
+    "greeting": "Hello, Parsa!",
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up"
+  }
+}

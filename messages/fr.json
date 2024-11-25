@@ -1,0 +1,13 @@
+{
+  "Metadata": {
+    "title": "Easy Connect",
+    "description": "Connectez-vous avec vos amis grâce à Easy Connect"
+  },
+  "LandingPage": {
+    "easy_connect": "Easy Connect",
+    "welcome": "Bienvenue sur Easy Connect !",
+    "greeting": "Bonjour, Parsa !",
+    "sign_in": "Se connecter",
+    "sign_up": "S'inscrire"
+  }
+}
