@@ -1,4 +1,4 @@
-import { LocaleType } from '@/lib/i18n';
+import { LocaleType } from '@/types/i18n';
 
-export const locales = ['pr', 'en'] as const;
+export const locales = ['pr', 'en', 'de', 'fr'] as const;
 export const defaultLocale: LocaleType = 'pr';

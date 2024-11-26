@@ -2,15 +2,15 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { compareSync } from 'bcrypt';
 import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { db } from './db';
-import { FormSchema } from './schemas';
+import { db } from '../../../../lib/db';
+import { FormSchema } from '../../../../types/schemas';
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db),
   secret: process.env.NEXT_PUBLIC_AUTH_SECRET,
   pages: {
-    newUser: 'sign-up',
-    signIn: '/sign-in',
+    newUser: 'account?page=sign-up',
+    signIn: 'account?page=sign-in',
   },
   session: {
     strategy: 'jwt',
@@ -41,7 +41,7 @@ export const authOptions: NextAuthOptions = {
           return existingUser;
         } catch (error) {
           console.error('Failed to fetch user:', error);
-          throw new Error('Failed to fetch user.');
+          throw new Error('failed_fetch');
         }
       },
     }),

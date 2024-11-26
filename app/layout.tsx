@@ -1,10 +1,10 @@
 import GlobalProvider from '@/components/providers/GlobalProvider';
 import { cn } from '@/lib/utils';
-import { LocaleType } from '@/lib/i18n';
+import '@/styles/globals.css';
+import { LocaleType } from '@/types/i18n';
 import type { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
 import localFont from 'next/font/local';
-import './globals.css';
 
 const geistSans = localFont({
   src: '../public/fonts/GeistVF.woff',
@@ -43,14 +43,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={locale === 'pr' ? 'rtl' : 'ltr'} suppressHydrationWarning>
-      <body
-        className={cn(
-          geistSans.variable,
-          iranSans.variable,
-          locale === 'en' ? 'font-sans' : 'font-iran',
-          'antialiased'
-        )}
-      >
+      <body className={cn(geistSans.variable, iranSans.variable, locale === 'en' ? 'font-sans' : 'font-iran')}>
         <GlobalProvider>{children}</GlobalProvider>
       </body>
     </html>

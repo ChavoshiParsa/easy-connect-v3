@@ -3,7 +3,7 @@
 import { Globe } from 'lucide-react';
 import { setUserLocale } from '@/actions/locale';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { LocaleType } from '@/lib/i18n';
+import { LocaleType } from '@/types/i18n';
 import { cn } from '@/lib/utils';
 import { useLocale } from 'next-intl';
 
@@ -23,11 +23,11 @@ export default function LocaleSelector() {
 
   return (
     <Select value={locale} onValueChange={handleValueChange}>
-      <SelectTrigger className="w-[140px]">
-        <Globe className="mr-2 h-4 w-4" />
+      <SelectTrigger className="w-28 md:w-32">
+        <Globe className="h-4 w-4" />
         <SelectValue placeholder="Select language" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="text-sm md:text-base">
         {locales.map((locale) => (
           <SelectItem
             className={cn(locale.dir === 'rtl' ? 'font-iran' : 'font-sans')}

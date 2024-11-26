@@ -23,8 +23,7 @@ export async function POST(req: Request) {
 
     // check if email already exists
     const existingUser = await db.user.findUnique({ where: { email } });
-    if (existingUser)
-      return NextResponse.json({ user: null, message: 'User with this email already exists' }, { status: 409 });
+    if (existingUser) return NextResponse.json({ user: null, message: 'user_exist' }, { status: 409 });
 
     const hashedPass = hashSync(password, 10);
     const newUser = await db.user.create({ data: { email, password: hashedPass } });

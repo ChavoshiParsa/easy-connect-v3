@@ -1,12 +1,12 @@
 import LogoutButton from '@/components/layout/LogoutButton';
-import { authOptions } from '@/lib/auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/auth-options';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 
 export default async function HomePage() {
   const session = await getServerSession(authOptions);
 
-  if (!session || !session.user) redirect('/sign-in');
+  if (!session || !session.user) redirect('/account?page=sign-in');
 
   return (
     <div className="flex items-center justify-center gap-2 p-4">
