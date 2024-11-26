@@ -50,7 +50,8 @@ export default async function RootLayout({
   );
 }
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: LocaleType } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: LocaleType }> }): Promise<Metadata> {
+  const locale = (await params).locale;
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
   return {
