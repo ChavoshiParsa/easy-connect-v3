@@ -34,6 +34,11 @@ const iranSans = localFont({
   variable: '--font-iran-sans',
 });
 
+// export const metadata: Metadata = {
+//   title: 'Easy Connect',
+//   description: 'Connect to your friends with Easy Connect',
+// };
+
 export default async function RootLayout({
   children,
 }: Readonly<{
