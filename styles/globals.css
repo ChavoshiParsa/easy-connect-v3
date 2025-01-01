@@ -63,6 +63,6 @@
     @apply border-border;
   }
   body {
-    @apply h-screen overflow-x-hidden bg-background text-foreground antialiased;
+    @apply fixed inset-0 h-dvh w-screen bg-background text-foreground antialiased;
   }
 }
