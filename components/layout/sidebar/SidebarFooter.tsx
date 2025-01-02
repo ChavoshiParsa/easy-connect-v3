@@ -10,7 +10,6 @@ import { cn, handleLogout } from '@/lib/utils';
 import { gradientAvatarClasses, dummyUser as user } from '@/types/constants';
 import { useAtomValue } from 'jotai';
 import { ChevronsUpDown, LogOut } from 'lucide-react';
-import { signOut } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 
 export default function SidebarFooter() {

@@ -1,6 +1,4 @@
-import Sidebar from './sidebar/Sidebar';
-import ChatList from './chat-list/ChatList';
-import ChatScreen from './chat-screen/ChatScreen';
+import Sidebar from '../sidebar/Sidebar';
 
 export default function Home() {
   return (
