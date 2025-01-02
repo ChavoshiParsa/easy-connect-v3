@@ -11,9 +11,9 @@ const menuItems = [
 
 export default function SidebarMenu() {
   return (
-    <div className="flex w-full flex-col items-center gap-1">
-      {menuItems.map(({ title, href, icon }, index) => (
-        <SidebarMenuItem key={index} title={title} href={href} icon={icon} />
+    <div className="flex w-full flex-col items-center gap-2">
+      {menuItems.map(({ title, href, icon }) => (
+        <SidebarMenuItem key={title} title={title} href={href} icon={icon} />
       ))}
     </div>
   );

@@ -1,15 +1,36 @@
 'use client';
 
+import { isSidebarOpenAtom } from '@/lib/store';
+import { motion } from 'framer-motion';
+import { useAtomValue } from 'jotai';
 import SidebarFooter from './SidebarFooter';
 import SidebarHeader from './SidebarHeader';
 import SidebarMenu from './SidebarMenu';
 
+const variants = {
+  open: {
+    width: '16rem',
+    transition: { type: 'spring', stiffness: 500, damping: 50 },
+  },
+  closed: {
+    width: '4rem',
+    transition: { type: 'spring', stiffness: 500, damping: 50 },
+  },
+};
+
 export default function Sidebar() {
+  const isSidebarOpen = useAtomValue(isSidebarOpenAtom);
+
   return (
-    <div className="flex h-full min-w-80 flex-col items-center justify-start gap-4 bg-zinc-50 p-2.5 dark:bg-zinc-950">
+    <motion.div
+      className="flex h-full flex-col items-center justify-start gap-2 bg-zinc-50 p-2 dark:bg-zinc-950"
+      variants={variants}
+      animate={isSidebarOpen ? 'open' : 'closed'}
+      layout
+    >
       <SidebarHeader />
       <SidebarMenu />
       <SidebarFooter />
-    </div>
+    </motion.div>
   );
 }
