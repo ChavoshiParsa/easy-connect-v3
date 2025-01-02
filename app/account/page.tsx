@@ -1,7 +1,7 @@
-import AnimatedAuthLayout from '@/components/auth/AuthLayout';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import { authOptions } from '../api/auth/[...nextauth]/auth-options';
+import AuthLayout from '@/components/layout/auth/AuthLayout';
 
 export type AuthPageMode = 'sign-in' | 'sign-up';
 
@@ -17,5 +17,5 @@ export default async function AuthPage({ searchParams }: { searchParams: Promise
     redirect('/home');
   }
 
-  return <AnimatedAuthLayout initialPage={page as AuthPageMode} />;
+  return <AuthLayout initialPage={page as AuthPageMode} />;
 }

@@ -33,5 +33,13 @@
     "create_account": "Create Your Account",
     "welcome_back_text": "Welcome back, please enter your credentials.",
     "create_account_text": "Choose a email and set a password."
+  },
+  "Sidebar": {
+    "home": "Home",
+    "profile": "Profile",
+    "preferences": "Preferences",
+    "saved_messages": "Saved Messages",
+    "contacts": "Contacts",
+    "logout": "Log out"
   }
 }

@@ -8,7 +8,7 @@ import Image from 'next/image';
 import LoginForm from './LoginForm';
 import LoginNavbar from './LoginNavbar';
 
-export default function AnimatedAuthLayout({ initialPage }: { initialPage: AuthPageMode }) {
+export default function AuthLayout({ initialPage }: { initialPage: AuthPageMode }) {
   const isSignInPage = initialPage === 'sign-in';
   const pageKey = isSignInPage ? 'sign_in' : 'sign_up';
   const locale = useLocale();
@@ -20,7 +20,7 @@ export default function AnimatedAuthLayout({ initialPage }: { initialPage: AuthP
       className={cn('flex size-full items-center', isSignInPage ? 'flex-row' : 'flex-row-reverse')}
     >
       <motion.aside
-        className="z-10 h-full w-0 md:w-7/12"
+        className="z-10 h-full w-0 md:w-1/2"
         initial={{ x: isSignInPage ? `${f * 100}%` : `${f * -100}%`, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: isSignInPage ? `${f * -100}%` : `${f * 100}%`, opacity: 1 }}
@@ -38,7 +38,7 @@ export default function AnimatedAuthLayout({ initialPage }: { initialPage: AuthP
         </div>
       </motion.aside>
       <motion.section
-        className="flex size-full flex-col items-center justify-start space-y-24 p-2 md:w-5/12 md:p-6"
+        className="flex size-full flex-col items-center justify-start space-y-24 p-2 md:w-1/2 md:p-6"
         initial={{ x: isSignInPage ? `${f * -100}%` : `${f * 100}%`, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: isSignInPage ? `${f * 100}%` : `${f * -100}%`, opacity: 0 }}

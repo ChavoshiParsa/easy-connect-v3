@@ -14,9 +14,9 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import z from 'zod';
-import { Button } from '../ui/button';
-import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import IconInput from './IconInput';
+import { Button } from '@/components/ui/button';
 
 export default function LoginForm({ pageMode }: { pageMode: AuthPageMode }) {
   const isSignInForm = pageMode === 'sign-in';
@@ -96,17 +96,17 @@ export default function LoginForm({ pageMode }: { pageMode: AuthPageMode }) {
           />
         </div>
         <Button
-          className="mt-8 w-full bg-indigo-500 py-6 text-lg font-bold text-white transition hover:bg-indigo-600 active:scale-[.97] dark:bg-indigo-700 dark:hover:bg-indigo-800"
+          className="mt-8 w-full bg-sky-500 py-6 text-lg font-bold text-white transition hover:bg-sky-600 active:scale-[.97] dark:bg-sky-600 dark:hover:bg-sky-700"
           type="submit"
           disabled={loading}
         >
           {!loading ? t(isSignInForm ? 'sign_in' : 'sign_up') : <LoaderCircle className="animate-spin" />}
         </Button>
       </form>
-      <p className="mt-2 text-sm text-gray-600">
+      <p className="mt-2 text-sm text-zinc-500">
         {t(isSignInForm ? 'no_account' : 'already_account')}{' '}
         <Link
-          className="cursor-pointer bg-transparent font-bold text-blue-500 hover:underline"
+          className="cursor-pointer bg-transparent font-bold text-sky-500 hover:underline"
           href={`/account?page=${!isSignInForm ? 'sign-in' : 'sign-up'}`}
         >
           {t(!isSignInForm ? 'sign_in' : 'sign_up')}

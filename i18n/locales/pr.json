@@ -33,5 +33,13 @@
     "create_account": "حساب کاربری ایجاد کنید",
     "welcome_back_text": "خوش آمدید، لطفاً اطلاعات کاربری خود را وارد کنید.",
     "create_account_text": "یک ایمیل انتخاب کنید و یک رمز عبور تنظیم کنید."
+  },
+  "Sidebar": {
+    "home": "خانه",
+    "profile": "پروفایل",
+    "preferences": "تنظیمات",
+    "saved_messages": "پیام های ذخیره شده",
+    "contacts": "مخاطبان",
+    "logout": "خروج"
   }
 }
