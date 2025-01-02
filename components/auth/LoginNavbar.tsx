@@ -1,6 +1,6 @@
-import { useLocale, useTranslations } from 'next-intl';
-import SettingActionButtons from '../layout/SettingActionButtons';
 import { cn } from '@/lib/utils';
+import { useLocale, useTranslations } from 'next-intl';
+import SettingActionButtons from '../layout/navbar-action/SettingActionButtons';
 
 type Props = {
   page: 'sign_in' | 'sign_up';

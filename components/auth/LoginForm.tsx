@@ -1,7 +1,10 @@
 'use client';
 
+import { AuthPageMode } from '@/app/account/page';
+import apiClient from '@/lib/api-client';
 import { FormSchema, schemaWithTranslation } from '@/types/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
+import axios from 'axios';
 import { LoaderCircle } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
@@ -14,9 +17,6 @@ import z from 'zod';
 import { Button } from '../ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form';
 import IconInput from './IconInput';
-import { AuthPageMode } from '@/app/account/page';
-import apiClient from '@/lib/api-client';
-import axios from 'axios';
 
 export default function LoginForm({ pageMode }: { pageMode: AuthPageMode }) {
   const isSignInForm = pageMode === 'sign-in';

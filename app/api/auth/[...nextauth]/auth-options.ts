@@ -1,9 +1,9 @@
+import { db } from '@/lib/db';
+import { FormSchema } from '@/types/schemas';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { compareSync } from 'bcrypt';
 import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { db } from '../../../../lib/db';
-import { FormSchema } from '../../../../types/schemas';
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db),

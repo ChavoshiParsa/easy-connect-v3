@@ -1,7 +1,7 @@
 import { db } from '@/lib/db';
 import { hashSync } from 'bcrypt';
-import { NextResponse } from 'next/server';
 import { omit } from 'lodash';
+import { NextResponse } from 'next/server';
 import z from 'zod';
 
 const userSchema = z.object({

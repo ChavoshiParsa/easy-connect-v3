@@ -1,5 +1,5 @@
-import LogoutButton from '@/components/layout/LogoutButton';
 import { authOptions } from '@/app/api/auth/[...nextauth]/auth-options';
+import LogoutButton from '@/components/layout/navbar-action/LogoutButton';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 

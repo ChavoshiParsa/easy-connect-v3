@@ -1,4 +1,4 @@
-import SettingActionButtons from '@/components/layout/SettingActionButtons';
+import SettingActionButtons from '@/components/layout/navbar-action/SettingActionButtons';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 

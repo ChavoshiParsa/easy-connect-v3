@@ -1,10 +1,10 @@
 'use client';
 
-import { Globe } from 'lucide-react';
 import { setUserLocale } from '@/actions/locale';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { LocaleType } from '@/types/i18n';
 import { cn } from '@/lib/utils';
+import { LocaleType } from '@/types/i18n';
+import { Globe } from 'lucide-react';
 import { useLocale } from 'next-intl';
 
 const locales: { label: string; value: LocaleType; dir: 'rtl' | 'ltr' }[] = [
