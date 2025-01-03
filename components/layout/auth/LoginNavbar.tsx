@@ -1,5 +1,6 @@
-import SettingActionButtons from '@/components/common/action-buttons/SettingActionButtons';
-import { cn, getAppName } from '@/lib/utils';
+import SettingActionButtons from '@/components/common/SettingActionButtons';
+import { useApp } from '@/hooks/useApp';
+import { cn } from '@/lib/utils';
 import { useLocale, useTranslations } from 'next-intl';
 
 type Props = {
@@ -9,7 +10,9 @@ type Props = {
 export default function LoginNavbar({ page }: Props) {
   const t = useTranslations('LoginPage');
   const locale = useLocale();
-  const appName = getAppName();
+  const { appName } = useApp();
+
+  const isRtl = locale === 'pr';
 
   return (
     <header className="flex w-full flex-col items-center justify-center space-y-14">
@@ -21,12 +24,7 @@ export default function LoginNavbar({ page }: Props) {
         <h2 className="text-3xl font-medium md:text-4xl">
           {t(page === 'sign_in' ? 'welcome_back' : 'create_account')}
         </h2>
-        <p
-          className={cn(
-            `text-center text-base text-zinc-500 md:text-lg`,
-            locale === 'pr' ? 'md:text-right' : 'md:text-left'
-          )}
-        >
+        <p className={cn(`text-center text-base text-zinc-500 md:text-lg`, isRtl ? 'md:text-right' : 'md:text-left')}>
           {t(page === 'sign_in' ? 'welcome_back_text' : 'create_account_text')}
         </p>
       </div>

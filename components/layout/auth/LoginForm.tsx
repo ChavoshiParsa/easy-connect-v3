@@ -5,7 +5,7 @@ import apiClient from '@/lib/api-client';
 import { FormSchema, schemaWithTranslation } from '@/schemas/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
-import { LoaderCircle } from 'lucide-react';
+import { LoaderCircle, Lock, Mail } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -15,7 +15,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import z from 'zod';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
-import IconInput from './IconInput';
+import IconInput from '../../common/IconInput';
 import { Button } from '@/components/ui/button';
 
 export default function LoginForm({ pageMode }: { pageMode: AuthPageMode }) {
@@ -76,7 +76,7 @@ export default function LoginForm({ pageMode }: { pageMode: AuthPageMode }) {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <IconInput type="email" placeholder={t('email')} {...field} />
+                  <IconInput icon={Mail} type="email" placeholder={t('email')} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -88,7 +88,7 @@ export default function LoginForm({ pageMode }: { pageMode: AuthPageMode }) {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <IconInput type="password" placeholder={t('password')} {...field} />
+                  <IconInput icon={Lock} type="password" placeholder={t('password')} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

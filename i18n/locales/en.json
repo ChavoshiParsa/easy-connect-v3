@@ -42,5 +42,8 @@
   },
   "App": {
     "app_name": "Easy Connect"
+  },
+  "ChatList": {
+    "search": "Search"
   }
 }

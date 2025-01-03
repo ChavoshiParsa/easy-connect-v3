@@ -1,6 +1,6 @@
+import { useApp } from '@/hooks/useApp';
 import { useWindowWidth } from '@/hooks/useWindowSize';
 import { isSidebarOpenAtom } from '@/lib/store';
-import { getAppName } from '@/lib/utils';
 import { useAtom } from 'jotai';
 import { PanelRight } from 'lucide-react';
 import Image from 'next/image';
@@ -9,12 +9,12 @@ import { useEffect } from 'react';
 export default function SidebarHeader() {
   const [isSidebarOpen, setIsSidebarOpen] = useAtom(isSidebarOpenAtom);
   const { isLg } = useWindowWidth();
-  const appName = getAppName();
+  const { appName } = useApp();
 
   useEffect(() => {
     if (isLg) setIsSidebarOpen(true);
     else setIsSidebarOpen(false);
-  }, [isLg]);
+  }, [isLg, setIsSidebarOpen]);
 
   return (
     <button

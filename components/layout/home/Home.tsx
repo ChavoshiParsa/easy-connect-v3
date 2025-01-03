@@ -14,7 +14,7 @@ type Props = {
 };
 
 export default function Home({ userId }: Props) {
-  const [divRef, divWidth] = useElementWidth<HTMLDivElement>();
+  const [mainRef, divWidth] = useElementWidth<HTMLDivElement>();
   const isSidebarOpen = useAtomValue(isSidebarOpenAtom);
 
   const locale = useLocale();
@@ -23,27 +23,27 @@ export default function Home({ userId }: Props) {
   const isDivUnder724 = divWidth < 724 && isSidebarOpen;
 
   return (
-    <div
+    <main
       className={cn('xs:w-[calc(100%-3.5rem)] flex h-full w-full md:m-0 md:w-full', isRtl ? 'xs:mr-14' : 'xs:ml-14')}
-      ref={divRef}
+      ref={mainRef}
     >
       <ResizablePanelGroup direction="horizontal">
         <ResizablePanel
           className={cn(isDivUnder724 ? (userId ? 'hidden' : 'block') : userId ? 'hidden md:block' : 'block')}
-          minSize={45}
+          minSize={40}
+          defaultSize={40}
         >
           <ChatList />
         </ResizablePanel>
-
         <ResizableHandle className={cn(isDivUnder724 ? 'hidden' : 'hidden md:flex')} withHandle />
-
         <ResizablePanel
           className={cn(isDivUnder724 ? (userId ? 'block' : 'hidden') : userId ? 'block' : 'hidden md:block')}
-          minSize={45}
+          minSize={40}
+          defaultSize={60}
         >
           <ChatScreen userId={userId} />
         </ResizablePanel>
       </ResizablePanelGroup>
-    </div>
+    </main>
   );
 }

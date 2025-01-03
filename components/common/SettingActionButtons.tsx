@@ -1,5 +1,5 @@
-import LocaleSelector from './LocaleSelector';
-import ModeToggle from './ModeToggle';
+import LocaleSelector from './action-buttons/LocaleSelector';
+import ModeToggle from './action-buttons/ModeToggle';
 
 export default function SettingActionButtons() {
   return (

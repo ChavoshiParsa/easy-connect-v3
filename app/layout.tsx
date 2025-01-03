@@ -45,9 +45,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
+  const isRtl = locale === 'pr';
 
   return (
-    <html lang={locale} dir={locale === 'pr' ? 'rtl' : 'ltr'} suppressHydrationWarning>
+    <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <body className={cn(geistSans.variable, iranSans.variable, locale === 'en' ? 'font-sans' : 'font-iran')}>
         <GlobalProvider>{children}</GlobalProvider>
       </body>

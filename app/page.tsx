@@ -1,11 +1,11 @@
-import SettingActionButtons from '@/components/common/action-buttons/SettingActionButtons';
-import { getAppName } from '@/lib/utils';
+import SettingActionButtons from '@/components/common/SettingActionButtons';
+import { useApp } from '@/hooks/useApp';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 export default function LandingPage() {
   const t = useTranslations('LandingPage');
-  const appName = getAppName();
+  const { appName } = useApp();
 
   return (
     <div className="flex size-full flex-col items-center justify-between p-4">

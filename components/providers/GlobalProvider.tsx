@@ -6,13 +6,14 @@ import { ThemeProvider } from './ThemeProvider';
 
 export default async function GlobalProvider({ children }: { children: React.ReactNode }) {
   const locale = await getUserLocale();
+  const isRtl = locale === 'pr';
 
   return (
     <NextIntlProvider>
       <StoreProvider>
         <ThemeProvider>
           {children}
-          <Toaster position={locale === 'pr' ? 'bottom-left' : 'bottom-right'} richColors />
+          <Toaster position={isRtl ? 'bottom-left' : 'bottom-right'} richColors />
         </ThemeProvider>
       </StoreProvider>
     </NextIntlProvider>

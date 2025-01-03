@@ -12,7 +12,9 @@ export default function AuthLayout({ initialPage }: { initialPage: AuthPageMode 
   const isSignInPage = initialPage === 'sign-in';
   const pageKey = isSignInPage ? 'sign_in' : 'sign_up';
   const locale = useLocale();
-  const f = locale === 'pr' ? 1 : -1;
+
+  const isRtl = locale === 'pr';
+  const f = isRtl ? 1 : -1;
 
   return (
     <main

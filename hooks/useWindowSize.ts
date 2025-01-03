@@ -14,5 +14,5 @@ export function useWindowWidth() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return { width, isMd: width >= 768, isLg: width >= 1024 };
+  return { width, isXs: width >= 425, isMd: width >= 768, isLg: width >= 1024 };
 }
