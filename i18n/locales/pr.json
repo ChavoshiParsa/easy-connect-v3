@@ -4,14 +4,12 @@
     "description": "با ایزی کانکت به دوستان خود متصل شوید"
   },
   "LandingPage": {
-    "easy_connect": "ایزی کانکت",
     "welcome": "به ایزی کانکت خوش آمدید!",
     "greeting": "سلام، پارسا!",
     "sign_in": "ورود",
     "sign_up": "ثبت نام"
   },
   "LoginPage": {
-    "app_name": "ایزی کانکت",
     "email": "ایمیل",
     "password": "رمز عبور",
     "sign_in": "ورود",
@@ -41,5 +39,8 @@
     "saved_messages": "پیام های ذخیره شده",
     "contacts": "مخاطبان",
     "logout": "خروج"
+  },
+  "App": {
+    "app_name": "ایزی کانکت"
   }
 }

@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: '425px',
+      },
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
         iran: ['var(--font-iran-sans)'],

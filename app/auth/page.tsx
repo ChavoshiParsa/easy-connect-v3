@@ -9,7 +9,7 @@ export default async function AuthPage({ searchParams }: { searchParams: Promise
   const { page = 'sign-in' } = await searchParams;
 
   if (!['sign-in', 'sign-up'].includes(page)) {
-    redirect('/account?page=sign-in');
+    redirect('/auth?page=sign-in');
   }
 
   const session = await getServerSession(authOptions);

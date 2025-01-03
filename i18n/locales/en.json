@@ -4,14 +4,12 @@
     "description": "Connect to your friends with Easy Connect"
   },
   "LandingPage": {
-    "easy_connect": "Easy Connect",
     "welcome": "Welcome to Easy Connect!",
     "greeting": "Hello, Parsa!",
     "sign_in": "Sign In",
     "sign_up": "Sign Up"
   },
   "LoginPage": {
-    "app_name": "Easy Connect",
     "email": "Email",
     "password": "Password",
     "sign_in": "Sign In",
@@ -41,5 +39,8 @@
     "saved_messages": "Saved Messages",
     "contacts": "Contacts",
     "logout": "Log out"
+  },
+  "App": {
+    "app_name": "Easy Connect"
   }
 }

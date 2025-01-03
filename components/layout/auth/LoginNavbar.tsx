@@ -1,5 +1,5 @@
 import SettingActionButtons from '@/components/common/action-buttons/SettingActionButtons';
-import { cn } from '@/lib/utils';
+import { cn, getAppName } from '@/lib/utils';
 import { useLocale, useTranslations } from 'next-intl';
 
 type Props = {
@@ -9,11 +9,12 @@ type Props = {
 export default function LoginNavbar({ page }: Props) {
   const t = useTranslations('LoginPage');
   const locale = useLocale();
+  const appName = getAppName();
 
   return (
     <header className="flex w-full flex-col items-center justify-center space-y-14">
       <nav className="flex w-full items-center justify-between">
-        <h1 className="animate-pulse text-2xl text-sky-400 dark:text-sky-600 md:text-3xl">{t('app_name')}</h1>
+        <h1 className="animate-pulse text-2xl text-sky-400 dark:text-sky-600 md:text-3xl">{appName}</h1>
         <SettingActionButtons />
       </nav>
       <div className="flex w-full flex-col items-center justify-center space-y-3 md:items-start">

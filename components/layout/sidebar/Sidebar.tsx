@@ -13,7 +13,7 @@ const variants = {
     transition: { type: 'spring', stiffness: 500, damping: 50 },
   },
   closed: {
-    width: '4rem',
+    width: '3.5rem',
     transition: { type: 'spring', stiffness: 500, damping: 50 },
   },
 };
@@ -23,7 +23,8 @@ export default function Sidebar() {
 
   return (
     <motion.div
-      className="flex h-full flex-col items-center justify-start gap-2 bg-zinc-50 p-2 dark:bg-zinc-950"
+      className="xs:flex absolute hidden h-full flex-col items-center justify-start gap-2 bg-zinc-50 p-2 dark:bg-zinc-950 md:relative"
+      initial={false}
       variants={variants}
       animate={isSidebarOpen ? 'open' : 'closed'}
       layout

@@ -1,6 +1,6 @@
 'use client';
 
-import { AuthPageMode } from '@/app/account/page';
+import { AuthPageMode } from '@/app/auth/page';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';

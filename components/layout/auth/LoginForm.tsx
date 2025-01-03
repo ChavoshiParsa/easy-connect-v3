@@ -1,8 +1,8 @@
 'use client';
 
-import { AuthPageMode } from '@/app/account/page';
+import { AuthPageMode } from '@/app/auth/page';
 import apiClient from '@/lib/api-client';
-import { FormSchema, schemaWithTranslation } from '@/types/schemas';
+import { FormSchema, schemaWithTranslation } from '@/schemas/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { LoaderCircle } from 'lucide-react';
@@ -107,7 +107,7 @@ export default function LoginForm({ pageMode }: { pageMode: AuthPageMode }) {
         {t(isSignInForm ? 'no_account' : 'already_account')}{' '}
         <Link
           className="cursor-pointer bg-transparent font-bold text-sky-500 hover:underline"
-          href={`/account?page=${!isSignInForm ? 'sign-in' : 'sign-up'}`}
+          href={`/auth?page=${!isSignInForm ? 'sign-in' : 'sign-up'}`}
         >
           {t(!isSignInForm ? 'sign_in' : 'sign_up')}
         </Link>
