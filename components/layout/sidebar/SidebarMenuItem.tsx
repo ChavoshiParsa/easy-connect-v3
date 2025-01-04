@@ -27,21 +27,19 @@ export default function SidebarMenuItem({ title, href, icon: Icon }: SidebarMenu
         <Link
           href={href}
           className={cn(
-            'flex w-full cursor-pointer items-center justify-start gap-2 rounded-lg p-2 ring-sky-400 hover:bg-zinc-200 dark:ring-sky-600 dark:hover:bg-zinc-900',
-            isActive && 'bg-zinc-200 text-sky-400 ring-2 dark:bg-zinc-900 dark:text-sky-600'
+            'flex w-full cursor-pointer items-center justify-start gap-2 rounded-lg p-2 transition hover:bg-zinc-300 dark:hover:bg-zinc-800',
+            isActive && 'bg-zinc-300 dark:bg-zinc-800'
           )}
         >
-          <div className="size-6">
-            <Icon size={24} />
-          </div>
-          {isSidebarOpen && <span className="text-nowrap">{t(title)}</span>}
+          <Icon className={cn('max-h-6 min-h-6 min-w-6 max-w-6', isActive && 'text-sky-500')} />
+          {isSidebarOpen && (
+            <span className={cn('text-nowrap font-medium', isActive && 'text-sky-500')}>{t(title)}</span>
+          )}
         </Link>
       </TooltipTrigger>
-      {!isSidebarOpen && (
-        <TooltipContent side="right">
-          <p>{t(title)}</p>
-        </TooltipContent>
-      )}
+      <TooltipContent side="right" className={cn(!isSidebarOpen ? 'block' : 'hidden')}>
+        <p>{t(title)}</p>
+      </TooltipContent>
     </Tooltip>
   );
 }

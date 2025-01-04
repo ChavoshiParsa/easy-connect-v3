@@ -1,18 +1,15 @@
 import SettingActionButtons from '@/components/common/SettingActionButtons';
 import { useApp } from '@/hooks/useApp';
 import { cn } from '@/lib/utils';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   page: 'sign_in' | 'sign_up';
 };
 
 export default function LoginNavbar({ page }: Props) {
+  const { appName, isRtl } = useApp();
   const t = useTranslations('LoginPage');
-  const locale = useLocale();
-  const { appName } = useApp();
-
-  const isRtl = locale === 'pr';
 
   return (
     <header className="flex w-full flex-col items-center justify-center space-y-14">

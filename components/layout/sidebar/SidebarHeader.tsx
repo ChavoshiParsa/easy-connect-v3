@@ -1,33 +1,27 @@
 import { useApp } from '@/hooks/useApp';
-import { useWindowWidth } from '@/hooks/useWindowSize';
 import { isSidebarOpenAtom } from '@/lib/store';
 import { useAtom } from 'jotai';
 import { PanelRight } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect } from 'react';
 
 export default function SidebarHeader() {
-  const [isSidebarOpen, setIsSidebarOpen] = useAtom(isSidebarOpenAtom);
-  const { isLg } = useWindowWidth();
   const { appName } = useApp();
-
-  useEffect(() => {
-    if (isLg) setIsSidebarOpen(true);
-    else setIsSidebarOpen(false);
-  }, [isLg, setIsSidebarOpen]);
+  const [isSidebarOpen, setIsSidebarOpen] = useAtom(isSidebarOpenAtom);
 
   return (
     <button
-      className="flex w-full cursor-pointer items-center justify-start gap-2 rounded-lg p-2 hover:bg-zinc-200 dark:hover:bg-zinc-900"
+      className="flex w-full cursor-pointer items-center justify-start gap-2 rounded-lg p-2 transition hover:bg-zinc-300 dark:hover:bg-zinc-800"
       onClick={() => setIsSidebarOpen((prev) => !prev)}
     >
-      <Image src={'/images/app-logo.png'} alt={'App Logo'} width={24} height={24} priority />
       {isSidebarOpen && (
-        <div className="flex w-full items-center justify-between">
-          <h1 className="text-nowrap text-lg font-semibold">{appName}</h1>
-          <PanelRight />
-        </div>
+        <>
+          <Image className="" src={'/images/app-logo.png'} alt={'App Logo'} width={24} height={24} priority />
+          <div className="flex w-full items-center justify-between">
+            <h1 className="text-nowrap font-bold">{appName}</h1>
+          </div>
+        </>
       )}
+      <PanelRight className="max-h-6 min-h-6 min-w-6 max-w-6 text-zinc-800 dark:text-zinc-200" />
     </button>
   );
 }

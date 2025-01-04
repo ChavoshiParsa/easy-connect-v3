@@ -38,34 +38,36 @@ export default function SidebarFooter() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <div
-          className={cn(
-            'mt-auto flex w-full cursor-pointer items-center justify-start gap-2 rounded-lg',
-            isSidebarOpen && 'p-2 hover:bg-zinc-200 dark:hover:bg-zinc-900'
-          )}
-        >
-          <Avatar className="rounded-lg">
-            <AvatarImage src={user.avatarImage} alt={`${user.firstName} ${user.lastName}'s avatar`} />
+        <button className="mt-auto flex w-full cursor-pointer items-center gap-2 rounded-lg hover:bg-zinc-300 hover:ring-4 hover:ring-zinc-300 dark:hover:bg-zinc-800 dark:hover:ring-zinc-800">
+          <Avatar className="flex max-h-10 min-h-10 min-w-10 max-w-10 items-center justify-center rounded-lg">
+            <AvatarImage
+              className="max-h-10 min-h-10 min-w-10 max-w-10 rounded-lg"
+              src={user.avatarImage}
+              alt={`${user.firstName} ${user.lastName}'s avatar`}
+            />
             <AvatarFallback
-              className={cn('rounded-lg bg-gradient-to-br text-zinc-100', gradientAvatarClasses[user.avatarColor])}
+              className={cn(
+                'max-h-9 min-h-9 min-w-9 max-w-9 rounded-lg bg-gradient-to-br text-zinc-50',
+                gradientAvatarClasses[user.avatarColor]
+              )}
             >
               {avatarFallback}
             </AvatarFallback>
           </Avatar>
           {isSidebarOpen && (
             <>
-              <div className="flex w-full flex-col gap-px">
-                <span className="text-nowrap text-sm font-medium">{`${user.firstName} ${user.lastName}`}</span>
-                <span className="text-nowrap text-xs text-muted-foreground">{user.email}</span>
+              <div className="flex w-full flex-col items-start">
+                <span className="text-nowrap text-sm font-semibold leading-4">{`${user.firstName} ${user.lastName}`}</span>
+                <span className="text-nowrap text-xs font-light text-muted-foreground">{user.email}</span>
               </div>
-              <ChevronsUpDown size={32} />
+              <ChevronsUpDown className="max-h-6 min-h-6 min-w-6 max-w-6 text-zinc-800 dark:text-zinc-200" />
             </>
           )}
-        </div>
+        </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent side="top" align="end">
         <DropdownMenuItem className="cursor-pointer text-red-500" onSelect={handleLogout}>
-          <LogOut />
+          <LogOut className="max-h-6 min-h-6 min-w-6 max-w-6" />
           <span>{t('logout')}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>

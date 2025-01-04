@@ -1,9 +1,9 @@
 'use client';
 
 import { AuthPageMode } from '@/app/auth/page';
+import { useApp } from '@/hooks/useApp';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import LoginForm from './LoginForm';
 import LoginNavbar from './LoginNavbar';
@@ -11,9 +11,8 @@ import LoginNavbar from './LoginNavbar';
 export default function AuthLayout({ initialPage }: { initialPage: AuthPageMode }) {
   const isSignInPage = initialPage === 'sign-in';
   const pageKey = isSignInPage ? 'sign_in' : 'sign_up';
-  const locale = useLocale();
+  const { isRtl } = useApp();
 
-  const isRtl = locale === 'pr';
   const f = isRtl ? 1 : -1;
 
   return (

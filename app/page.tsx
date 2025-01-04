@@ -4,8 +4,8 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 export default function LandingPage() {
-  const t = useTranslations('LandingPage');
   const { appName } = useApp();
+  const t = useTranslations('LandingPage');
 
   return (
     <div className="flex size-full flex-col items-center justify-between p-4">

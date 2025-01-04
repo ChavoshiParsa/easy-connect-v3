@@ -24,7 +24,7 @@ export default function LocaleSelector() {
   return (
     <Select value={locale} onValueChange={handleValueChange}>
       <SelectTrigger className="w-28 md:w-32">
-        <Globe className="h-4 w-4" />
+        <Globe className="max-h-4 min-h-4 min-w-4 max-w-4 text-zinc-800 dark:text-zinc-200" />
         <SelectValue placeholder="Select language" />
       </SelectTrigger>
       <SelectContent className="text-sm md:text-base">

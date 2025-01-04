@@ -1,6 +1,8 @@
 'use client';
 
 import { AuthPageMode } from '@/app/auth/page';
+import { Button } from '@/components/ui/button';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import apiClient from '@/lib/api-client';
 import { FormSchema, schemaWithTranslation } from '@/schemas/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -14,9 +16,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import z from 'zod';
-import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import IconInput from '../../common/IconInput';
-import { Button } from '@/components/ui/button';
 
 export default function LoginForm({ pageMode }: { pageMode: AuthPageMode }) {
   const isSignInForm = pageMode === 'sign-in';
@@ -100,7 +100,11 @@ export default function LoginForm({ pageMode }: { pageMode: AuthPageMode }) {
           type="submit"
           disabled={loading}
         >
-          {!loading ? t(isSignInForm ? 'sign_in' : 'sign_up') : <LoaderCircle className="animate-spin" />}
+          {!loading ? (
+            t(isSignInForm ? 'sign_in' : 'sign_up')
+          ) : (
+            <LoaderCircle className="max-h-6 min-h-6 min-w-6 max-w-6 animate-spin text-zinc-800 dark:text-zinc-200" />
+          )}
         </Button>
       </form>
       <p className="mt-2 text-sm text-zinc-500">

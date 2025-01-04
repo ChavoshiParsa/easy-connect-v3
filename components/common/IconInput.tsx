@@ -1,9 +1,9 @@
 'use client';
 
 import { Input } from '@/components/ui/input';
+import { useApp } from '@/hooks/useApp';
 import { cn } from '@/lib/utils';
 import { LucideProps } from 'lucide-react';
-import { useLocale } from 'next-intl';
 import { InputHTMLAttributes } from 'react';
 
 interface EmailInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -13,14 +13,16 @@ interface EmailInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export default function IconInput({ icon: Icon, type, placeholder, ...props }: EmailInputProps) {
-  const locale = useLocale();
-  const isRtl = locale === 'pr';
+  const { isRtl } = useApp();
 
   return (
     <div className="relative w-full">
       <Input className="w-full px-12 py-6" type={type} placeholder={placeholder} {...props} />
       <Icon
-        className={cn('absolute top-1/2 size-5 -translate-y-1/2 transform text-gray-400', isRtl ? 'right-4' : 'left-4')}
+        className={cn(
+          'absolute top-1/2 max-h-6 min-h-6 min-w-6 max-w-6 -translate-y-1/2 transform text-zinc-800 dark:text-zinc-200',
+          isRtl ? 'right-4' : 'left-4'
+        )}
       />
     </div>
   );

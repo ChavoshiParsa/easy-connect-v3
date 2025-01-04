@@ -1,6 +1,9 @@
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 export function useApp() {
   const t = useTranslations('App');
-  return { appName: t('app_name') };
+  const locale = useLocale();
+  const isRtl = locale === 'pr';
+
+  return { appName: t('app_name'), isRtl };
 }
