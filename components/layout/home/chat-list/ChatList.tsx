@@ -9,11 +9,12 @@ export default function ChatList() {
   const { isXs } = useWindowWidth();
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-start bg-zinc-100 p-2 dark:bg-zinc-950">
+    <div className="flex h-full w-full flex-col items-center justify-start gap-3 bg-zinc-100 p-3 dark:bg-zinc-950">
       <div className="flex w-full items-center justify-center gap-2">
         {!isXs && <MobileDrawer />}
         <IconInput icon={Search} type="search" placeholder={t('search')} /> {/* icon input need to refactor */}
       </div>
+      <div className="flex h-full flex-col"></div>
     </div>
   );
 }

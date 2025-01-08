@@ -38,7 +38,12 @@ export default function SidebarFooter() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="mt-auto flex w-full cursor-pointer items-center gap-2 rounded-lg hover:bg-zinc-300 hover:ring-4 hover:ring-zinc-300 dark:hover:bg-zinc-800 dark:hover:ring-zinc-800">
+        <button
+          className={cn(
+            'mt-auto flex w-full cursor-pointer items-center gap-2 rounded-lg hover:bg-zinc-300 dark:hover:bg-zinc-800',
+            isSidebarOpen && 'p-2'
+          )}
+        >
           <Avatar className="flex max-h-10 min-h-10 min-w-10 max-w-10 items-center justify-center rounded-lg">
             <AvatarImage
               className="max-h-10 min-h-10 min-w-10 max-w-10 rounded-lg"
