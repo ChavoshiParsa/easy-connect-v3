@@ -1,6 +1,5 @@
 import SettingActionButtons from '@/components/common/SettingActionButtons';
 import { useApp } from '@/hooks/useApp';
-import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
 };
 
 export default function LoginNavbar({ page }: Props) {
-  const { appName, isRtl } = useApp();
+  const { appName } = useApp();
   const t = useTranslations('LoginPage');
 
   return (
@@ -21,7 +20,7 @@ export default function LoginNavbar({ page }: Props) {
         <h2 className="text-3xl font-medium md:text-4xl">
           {t(page === 'sign_in' ? 'welcome_back' : 'create_account')}
         </h2>
-        <p className={cn(`text-center text-base text-zinc-500 md:text-lg`, isRtl ? 'md:text-right' : 'md:text-left')}>
+        <p className="text-start text-base text-zinc-500 md:text-lg">
           {t(page === 'sign_in' ? 'welcome_back_text' : 'create_account_text')}
         </p>
       </div>

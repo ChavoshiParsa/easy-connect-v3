@@ -8,6 +8,7 @@ import {
 import { isSidebarOpenAtom } from '@/lib/store';
 import { cn, handleLogout } from '@/lib/utils';
 import { AvatarColor } from '@/types/avatar-colors';
+import { user } from '@/types/constants';
 import { useAtomValue } from 'jotai';
 import { ChevronsUpDown, LogOut } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -19,14 +20,6 @@ const gradientAvatarClasses: Record<AvatarColor, string> = {
   purple: 'from-purple-400 to-purple-600',
   red: 'from-red-400 to-red-600',
   yellow: 'from-yellow-400 to-yellow-600',
-};
-
-const user = {
-  firstName: 'Parsa',
-  lastName: 'Chavoshi',
-  email: 'parypary82@gmail.com',
-  avatarImage: '',
-  avatarColor: 'yellow' as AvatarColor,
 };
 
 export default function SidebarFooter() {

@@ -1,7 +1,6 @@
 'use client';
 
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
-import { useApp } from '@/hooks/useApp';
 import { useElementWidth } from '@/hooks/useElementWidth';
 import { isSidebarOpenAtom } from '@/lib/store';
 import { cn } from '@/lib/utils';
@@ -16,15 +15,11 @@ type Props = {
 export default function Home({ userId }: Props) {
   const [mainRef, divWidth] = useElementWidth<HTMLDivElement>();
   const isSidebarOpen = useAtomValue(isSidebarOpenAtom);
-  const { isRtl } = useApp();
 
   const isDivUnder724 = divWidth < 724 && isSidebarOpen;
 
   return (
-    <main
-      className={cn('flex h-full w-full xs:w-[calc(100%-3.5rem)] md:m-0 md:w-full', isRtl ? 'xs:mr-14' : 'xs:ml-14')}
-      ref={mainRef}
-    >
+    <main className="flex h-full w-full xs:ms-14 xs:w-[calc(100%-3.5rem)] md:m-0 md:w-full" ref={mainRef}>
       <ResizablePanelGroup direction="horizontal">
         <ResizablePanel
           className={cn(isDivUnder724 ? (userId ? 'hidden' : 'block') : userId ? 'hidden md:block' : 'block')}

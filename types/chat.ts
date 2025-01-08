@@ -1,6 +1,7 @@
 import { AvatarColor } from './avatar-colors';
 
 export type ChatItemType = {
+  connectId: string;
   avatarColor: AvatarColor;
   avatarImageSrc: string;
   firstName: string;

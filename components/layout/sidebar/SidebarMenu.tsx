@@ -3,7 +3,7 @@ import SidebarMenuItem from './SidebarMenuItem';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
 
-const menuItems = [
+export const menuItems = [
   { title: 'home', href: '/home', icon: Home },
   { title: 'profile', href: '/profile', icon: UserPen },
   { title: 'preferences', href: '/preferences', icon: Settings2 },
