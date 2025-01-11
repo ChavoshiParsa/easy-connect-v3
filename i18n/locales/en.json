@@ -45,5 +45,20 @@
   },
   "ChatList": {
     "search": "Search"
+  },
+  "Date": {
+    "Saturday": "Saturday",
+    "Sunday": "Sunday",
+    "Monday": "Monday",
+    "Tuesday": "Tuesday",
+    "Wednesday": "Wednesday",
+    "Thursday": "Thursday",
+    "Friday": "Friday",
+    "Yesterday": "Yesterday"
+  },
+  "ChatScreen": {
+    "last_seen": "Last seen",
+    "write_message": "Write a message...",
+    "online": "online"
   }
 }

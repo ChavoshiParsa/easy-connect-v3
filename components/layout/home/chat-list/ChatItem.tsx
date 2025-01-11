@@ -1,8 +1,12 @@
+import NewMessageBadge from '@/components/common/NewMessageBadge';
+import OnlineBadge from '@/components/common/OnlineBadge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { cn, formatChatTime } from '@/lib/utils';
+import { cn, convertToPrDigitsIfPr, formatChatTime, isPersianText } from '@/lib/utils';
 import { AvatarColor } from '@/types/avatar-colors';
 import { ChatItemType } from '@/types/chat';
-import { Check, CheckCheck, Clock } from 'lucide-react';
+import { Check, CheckCheck, CircleAlert, Clock } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const gradientAvatarClasses: Record<AvatarColor, string> = {
   blue: 'from-blue-400 to-blue-600',
@@ -25,33 +29,64 @@ export default function ChatItem({
   time,
   status,
 }: ChatItemType) {
-  const avatarFallback = `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
+  const avatarFallback = `${firstName.charAt(0)}‌${lastName.charAt(0)}`.toUpperCase(); // there is shift + space at the between.
+
+  const isPrName = isPersianText(avatarFallback);
+  const isPrMessage = isPersianText(lastMessage);
 
   let icon;
-  if (status === 'sent') icon = <Check className="text-sky-500" size={12} />;
-  else if (status === 'seen') icon = <CheckCheck className="text-sky-500" size={12} />;
-  else if (status === 'sending') icon = <Clock size={12} />;
-  else if (status === 'error') icon = <CheckCheck className="text-destructive" size={12} />;
+  if (status === 'sent') icon = <Check className="size-3 text-sky-500" />;
+  else if (status === 'seen') icon = <CheckCheck className="size-3 text-sky-500" />;
+  else if (status === 'sending') icon = <Clock className="size-2.5 text-zinc-500" />;
+  else if (status === 'error') icon = <CircleAlert className="size-2.5 text-destructive" />;
+
+  const pathname = usePathname();
+  const isActive = pathname.endsWith(connectId);
+
   return (
-    <div className="flex w-full cursor-pointer flex-row gap-2 p-2 hover:bg-zinc-300 dark:hover:bg-zinc-800">
-      <Avatar className="rounded-lg">
-        <AvatarImage className="rounded-lg" src={avatarImageSrc} alt={`${firstName} $lastName}'s avatar`} />
-        <AvatarFallback className={cn('rounded-lg bg-gradient-to-br text-zinc-50', gradientAvatarClasses[avatarColor])}>
+    <Link
+      className={cn(
+        'flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition hover:bg-zinc-200 dark:hover:bg-zinc-900',
+        isActive && 'bg-zinc-200 dark:bg-zinc-900'
+      )}
+      href={'/home/' + connectId}
+    >
+      <Avatar className="relative size-12 overflow-visible rounded-lg">
+        <AvatarImage className="rounded-lg" src={avatarImageSrc} alt={`${firstName} ${lastName}'s avatar`} />
+        <AvatarFallback
+          className={cn(
+            'rounded-lg bg-gradient-to-br text-zinc-50',
+            gradientAvatarClasses[avatarColor],
+            isPrName ? 'font-iran' : 'font-sans'
+          )}
+        >
           {avatarFallback}
         </AvatarFallback>
+        {isOnline && <OnlineBadge />}
       </Avatar>
-      <div className="flex w-full flex-col items-center justify-center">
+      <div className="flex h-full w-full flex-col items-start justify-between">
         <div className="flex w-full items-center justify-between">
-          <span className="text-sm font-semibold">
+          <span className={(cn('font-medium'), isPrName ? 'font-iran' : 'font-sans')}>
             {firstName} {lastName}
           </span>
           <div className="flex items-center justify-center gap-1">
             {icon}
-            <span className="text-xs">{formatChatTime(time)}</span>
+            <span className="text-xs font-light text-zinc-500">{convertToPrDigitsIfPr(formatChatTime(time))}</span>
           </div>
         </div>
-        <p className="w-full text-start text-xs text-zinc-500">{lastMessage}</p>
+        <div className="flex w-full items-center justify-center gap-2">
+          <p
+            className={cn(
+              'line-clamp-1 w-full overflow-hidden break-words text-start text-sm text-zinc-500',
+              isPrMessage ? 'font-iran' : 'font-sans'
+            )}
+            dir={isPrMessage ? 'rtl' : 'ltr'}
+          >
+            {lastMessage}
+          </p>
+          <NewMessageBadge newMessageCount={newMessageCount} />
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

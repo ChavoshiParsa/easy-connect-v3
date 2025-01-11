@@ -6,7 +6,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { isSidebarOpenAtom } from '@/lib/store';
-import { cn, handleLogout } from '@/lib/utils';
+import { cn, handleLogout, isPersianText } from '@/lib/utils';
 import { AvatarColor } from '@/types/avatar-colors';
 import { user } from '@/types/constants';
 import { useAtomValue } from 'jotai';
@@ -26,7 +26,9 @@ export default function SidebarFooter() {
   const isSidebarOpen = useAtomValue(isSidebarOpenAtom);
   const t = useTranslations('Sidebar');
 
-  const avatarFallback = `${user.firstName.charAt(0)}${user.lastName.charAt(0)}`.toUpperCase();
+  const avatarFallback = `${user.firstName.charAt(0)}‌${user.lastName.charAt(0)}`.toUpperCase(); // there is shift + space at the between.
+
+  const isPrName = isPersianText(avatarFallback);
 
   return (
     <DropdownMenu>
@@ -37,16 +39,17 @@ export default function SidebarFooter() {
             isSidebarOpen && 'p-2'
           )}
         >
-          <Avatar className="flex max-h-10 min-h-10 min-w-10 max-w-10 items-center justify-center rounded-lg">
+          <Avatar className="flex items-center justify-center rounded-lg">
             <AvatarImage
-              className="max-h-10 min-h-10 min-w-10 max-w-10 rounded-lg"
+              className="rounded-lg"
               src={user.avatarImage}
               alt={`${user.firstName} ${user.lastName}'s avatar`}
             />
             <AvatarFallback
               className={cn(
-                'max-h-9 min-h-9 min-w-9 max-w-9 rounded-lg bg-gradient-to-br text-zinc-50',
-                gradientAvatarClasses[user.avatarColor]
+                'rounded-lg bg-gradient-to-br text-zinc-50',
+                gradientAvatarClasses[user.avatarColor],
+                isPrName ? 'font-iran' : 'font-sans'
               )}
             >
               {avatarFallback}

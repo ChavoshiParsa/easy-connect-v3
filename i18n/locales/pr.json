@@ -45,5 +45,20 @@
   },
   "ChatList": {
     "search": "جستجو"
+  },
+  "Date": {
+    "Saturday": "شنبه",
+    "Sunday": "یکشنبه",
+    "Monday": "دوشنبه",
+    "Tuesday": "سه‌شنبه",
+    "Wednesday": "چهارشنبه",
+    "Thursday": "پنج‌شنبه",
+    "Friday": "جمعه",
+    "Yesterday": "دیروز"
+  },
+  "ChatScreen": {
+    "last_seen": "آخرین بازدید",
+    "write_message": "پیامی بنویسید...",
+    "online": "آنلاین"
   }
 }
