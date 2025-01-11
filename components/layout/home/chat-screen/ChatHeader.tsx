@@ -1,8 +1,8 @@
-import OnlineBadge from '@/components/common/OnlineBadge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { useApp } from '@/hooks/useApp';
-import { cn, convertToPrDigitsIfPr, formatChatTime, isPersianText } from '@/lib/utils';
+import { useLocaleUtils } from '@/hooks/useLocaleUtils';
+import { cn } from '@/lib/utils';
 import { AvatarColor } from '@/types/avatar-colors';
 import { user } from '@/types/constants';
 import { ChevronLeft } from 'lucide-react';
@@ -19,6 +19,8 @@ const gradientAvatarClasses: Record<AvatarColor, string> = {
 };
 
 export default function ChatHeader() {
+  const { isPersianText, convertToPrDigitsIfPr, formatChatTime } = useLocaleUtils();
+
   const { isRtl } = useApp();
   const router = useRouter();
   const t = useTranslations('ChatScreen');

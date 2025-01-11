@@ -28,13 +28,14 @@ export default function ChatScreen({ userId }: Props) {
       { threshold: 1.0 }
     );
 
-    if (messageEndRef.current) {
-      observer.observe(messageEndRef.current);
+    const currentRef = messageEndRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (messageEndRef.current) {
-        observer.unobserve(messageEndRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -42,7 +43,7 @@ export default function ChatScreen({ userId }: Props) {
   useEffect(() => {
     const timeout = setTimeout(scrollToBottom, 100);
     return () => clearTimeout(timeout);
-  }, [messageItems.length]);
+  }, []);
 
   if (!userId)
     return (

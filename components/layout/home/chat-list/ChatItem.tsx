@@ -1,7 +1,8 @@
 import NewMessageBadge from '@/components/common/NewMessageBadge';
 import OnlineBadge from '@/components/common/OnlineBadge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { cn, convertToPrDigitsIfPr, formatChatTime, isPersianText } from '@/lib/utils';
+import { useLocaleUtils } from '@/hooks/useLocaleUtils';
+import { cn } from '@/lib/utils';
 import { AvatarColor } from '@/types/avatar-colors';
 import { ChatItemType } from '@/types/chat';
 import { Check, CheckCheck, CircleAlert, Clock } from 'lucide-react';
@@ -29,6 +30,7 @@ export default function ChatItem({
   time,
   status,
 }: ChatItemType) {
+  const { isPersianText, convertToPrDigitsIfPr, formatChatTime } = useLocaleUtils();
   const avatarFallback = `${firstName.charAt(0)}‌${lastName.charAt(0)}`.toUpperCase(); // there is shift + space at the between.
 
   const isPrName = isPersianText(avatarFallback);

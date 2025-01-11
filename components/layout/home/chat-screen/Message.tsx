@@ -1,9 +1,12 @@
 import { useApp } from '@/hooks/useApp';
-import { cn, convertToPrDigitsIfPr, formatTime, isPersianText } from '@/lib/utils';
+import { useLocaleUtils } from '@/hooks/useLocaleUtils';
+import { cn } from '@/lib/utils';
 import { MessageType } from '@/types/chat';
 import { Check, CheckCheck, CircleAlert, Clock } from 'lucide-react';
 
-export default function Message({ messageId, messageText, status, time, type }: MessageType) {
+export default function Message({ messageText, status, time, type }: MessageType) {
+  const { isPersianText, convertToPrDigitsIfPr, formatTime } = useLocaleUtils();
+
   const { isRtl } = useApp();
   const isPrMessage = isPersianText(messageText);
 

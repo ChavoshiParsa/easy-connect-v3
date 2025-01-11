@@ -23,7 +23,7 @@ export default function ChatInput() {
     // is typing ...
   }
 
-  function keyDownHandler(e: any) {
+  function keyDownHandler(e: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       submitFormRef.current?.click();

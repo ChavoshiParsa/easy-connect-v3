@@ -5,8 +5,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useLocaleUtils } from '@/hooks/useLocaleUtils';
 import { isSidebarOpenAtom } from '@/lib/store';
-import { cn, handleLogout, isPersianText } from '@/lib/utils';
+import { cn, handleLogout } from '@/lib/utils';
 import { AvatarColor } from '@/types/avatar-colors';
 import { user } from '@/types/constants';
 import { useAtomValue } from 'jotai';
@@ -23,6 +24,8 @@ const gradientAvatarClasses: Record<AvatarColor, string> = {
 };
 
 export default function SidebarFooter() {
+  const { isPersianText } = useLocaleUtils();
+
   const isSidebarOpen = useAtomValue(isSidebarOpenAtom);
   const t = useTranslations('Sidebar');
 
